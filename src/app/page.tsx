@@ -76,13 +76,29 @@ const Home = () => {
             className='bg-emerald-600 w-1/2 py-4 rounded-lg text-2xl text-gray-200 font-light tracking-widest'
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.2, backgroundColor: "#d1d5db", color: "black" }}
-            transition={{bounceDamping: 10, bounceStiffness: 600}}
+            transition={{ bounceDamping: 10, bounceStiffness: 600 }}
           >
             Click Me
           </motion.button>
         </motion.div>
 
-        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10"></motion.div>
+        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10">
+          <motion.div
+            className="w-1/3 h-1/3 rounded-2xl bg-orange-500 cursor-grab"
+            drag
+            dragConstraints={{
+              top: -25,
+              right: 25,
+              bottom: 25,
+              left: -25
+            }}
+            dragTransition={{
+              bounceDamping: 10,
+              bounceStiffness: 300
+            }}
+          />
+        </motion.div>
+
         <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10"></motion.div>
         <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10"></motion.div>
       </motion.section>
