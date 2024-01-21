@@ -37,6 +37,7 @@ const svgIconVariants = {
 
 const Home = () => {
   const { scrollYProgress: completionProgress } = useScroll()
+  
   return (
     <div className='flex flex-col gap-10 overflow-x-hidden'>
       <motion.section
