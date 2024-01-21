@@ -1,5 +1,5 @@
 "use client"
-import { motion } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 
 const gridContainerVariants = {
   hidden: {
@@ -23,6 +23,7 @@ const gridSquareVariants = {
 }
 
 const Home = () => {
+  const {scrollYProgress: completionProgress} = useScroll()
   return (
     <div className='flex flex-col gap-10 overflow-x-hidden'>
       <motion.section
@@ -99,8 +100,15 @@ const Home = () => {
           />
         </motion.div>
 
-        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10"></motion.div>
-        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10"></motion.div>
+        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10">
+          <motion.div className="w-48 aspect-square bg-gray-50/20 rounded-xl">
+            <motion.div className="w-full bg-gray-400 rounded-xl h-full origin-bottom" style={{ scaleY: completionProgress }} />
+          </motion.div>
+        </motion.div>
+
+        <motion.div variants={gridSquareVariants} className="bg-slate-800 aspect-square rounded-lg flex items-center justify-center gap-10">
+          
+        </motion.div>
       </motion.section>
     </div>
   )
